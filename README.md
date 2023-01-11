@@ -4,7 +4,7 @@ This Cumulocity Rest Based Grid Widget Plugin is the Cumulocity module federatio
 
 ### Please note that this plugin is in currently under BETA mode.
 
-### Please choose Demo Widget release based on Cumulocity/Application builder version:
+### Please choose Cumulocity Rest Based Grid Widget Plugin release based on Cumulocity/Application builder version:
 
 |APPLICATION BUILDER | CUMULOCITY  | CUMULOCITY REST BASED GRID WIDGET PLUGIN  |
 |--------------------|-------------|-------------------------------------------|
@@ -138,7 +138,7 @@ This Cumulocity Rest Based Grid Widget Plugin is the Cumulocity module federatio
 **Instructions**
 1. Clone the repository: 
 ```
-git clone https://github.com/SoftwareAG/cumulocity-demo-widget-plugin.git
+git clone https://github.com/SoftwareAG/cumulocity-rest-based-grid-widget-plugin.git
 ```
 2. Change directory: 
 ```
