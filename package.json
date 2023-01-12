@@ -1,7 +1,7 @@
 {
   "name": "cumulocity-rest-based-grid-widget-plugin",
   "version": "1.0.0-beta",
-  "description": "This is the Cumulocity module federation plugin. Plugins can be developed to display API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc..",
+  "description": "This Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc..",
   "scripts": {
     "start": "c8ycli server --env.beta=true",
     "build": "c8ycli build",
@@ -11,7 +11,7 @@
     "postbuild": " gulp bundle"
   },
   "keywords": [],
-  "author": "Sheethal J R- Software AG, Global Presales",
+  "author": "Meer Arfath - Software AG, Global Presales",
   "license": "Apache-2.0",
   "dependencies": {
     "@angular/animations": "14.0.6",
@@ -31,7 +31,7 @@
     "@ngx-translate/core": "14.0.0",
     "@c8y/style": "1016.0.40",
     "core-js": "^2.5.4",
-    "ngx-bootstrap": "6.2.0",
+    "ngx-bootstrap": "9.0.0",
     "rxjs": "~6.6.3",
     "zone.js": "~0.11.7"
   },
@@ -56,9 +56,10 @@
   "c8y": {
     "application": {
       "name": "Cumulocity Rest Based Grid Widget Plugin",
+      "description": "This Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc..",
       "contextPath": "rest-based-grid-runtime-widget",
       "key": "rest-based-grid-runtime-widget-application-key",
-      "globalTitle": "Custom widget with Module Federation",
+      "globalTitle": "This Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc..",
       "tabsHorizontal": true,
       "isPackage": true,
       "noAppSwitcher": true,
@@ -69,7 +70,7 @@
           "name": "Cumulocity Rest Based Grid Widget Plugin",
           "module": "GpRestBasedGridWidgetModule",
           "path": "./widget/gp-rest-based-grid-widget.module.ts",
-          "description": "This Plugins can be developed to display API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc.."
+          "description": "This Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc.."
         }
       ],
       "remotes": {
