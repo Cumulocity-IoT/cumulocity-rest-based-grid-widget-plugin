@@ -13,7 +13,7 @@ This Rest Based Grid Widget is the Cumulocity module federation plugin created u
 | 2.x.x(coming soon) | >= 1016.x.x | 1.x.x                  |
 
 
-## Prerequisites:
+## Prerequisite
    Cumulocity c8ycli >=1016.x.x
 
 

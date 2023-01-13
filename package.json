@@ -4,7 +4,7 @@
   "description": "This Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc..",
   "scripts": {
     "start": "c8ycli server --env.beta=true",
-    "build": "c8ycli build",
+    "build": "c8ycli build --env.mode=production",
     "deploy": "c8ycli deploy",
     "postinstall": "ngcc",
     "prebuild": " gulp clean",
@@ -65,6 +65,9 @@
       "noAppSwitcher": true,
       "package": "plugin",
       "requiredPlatformVersion": ">=1016.0.0",
+      "icon": {
+        "class": "dlt-c8y-icon-grid"
+      },
       "exports": [
         {
           "name": "Cumulocity Rest Based Grid Widget Plugin",
