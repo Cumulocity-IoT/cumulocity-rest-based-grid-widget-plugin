@@ -17,7 +17,7 @@
  */
 
 import { NgModule } from '@angular/core';
-import {CoreModule, HOOK_COMPONENTS} from '@c8y/ngx-components';
+import { CoreModule, HOOK_COMPONENTS } from '@c8y/ngx-components';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { GpRestBasedGridWidgetComponent } from './gp-rest-based-grid-widget.component';
@@ -38,26 +38,26 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
   entryComponents: [GpRestBasedGridWidgetComponent, GpRestBasedGridWidgetConfigComponent],
   providers: [
     {
-    provide: HOOK_COMPONENTS,
-    multi: true,
-    useValue: {
+      provide: HOOK_COMPONENTS,
+      multi: true,
+      useValue: {
         id: 'rest-based-grid.widget',
         label: 'Rest Based Grid',
         previewImage: preview.previewImage,
-        description: 'Rest Based Grid - Displays Document Lists from REST API as grids',
+        description: 'The Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc..',
         component: GpRestBasedGridWidgetComponent,
         configComponent: GpRestBasedGridWidgetConfigComponent,
         data: {
-            ng1: {
-                options: {
-                noDeviceTarget: false,
-                noNewWidgets: false,
-                deviceTargetNotRequired: true,
-                groupsSelectable: true
-                }
+          ng1: {
+            options: {
+              noDeviceTarget: false,
+              noNewWidgets: false,
+              deviceTargetNotRequired: true,
+              groupsSelectable: true
             }
+          }
         }
-    }
+      }
     }],
 })
 export class GpRestBasedGridWidgetModule { }

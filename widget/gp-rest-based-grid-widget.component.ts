@@ -17,7 +17,7 @@
  */
 
 import { Component, OnInit, Input, ViewChild, ViewEncapsulation } from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { GpRestBasedGridWidgetService } from './gp-rest-based-grid-widget.service';
@@ -28,8 +28,8 @@ import { GpRestBasedGridWidgetService } from './gp-rest-based-grid-widget.servic
   encapsulation: ViewEncapsulation.None,
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0', display: 'none' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
@@ -37,10 +37,10 @@ import { GpRestBasedGridWidgetService } from './gp-rest-based-grid-widget.servic
 export class GpRestBasedGridWidgetComponent implements OnInit {
   responseData: any;
 
-  constructor( private iotSrService: GpRestBasedGridWidgetService) { }
+  constructor(private iotSrService: GpRestBasedGridWidgetService) { }
 
   @Input() config;
-  @ViewChild(MatSort, {static: true})
+  @ViewChild(MatSort, { static: true })
   set sort(v: MatSort) { this.dataSource.sort = v; }
   dataSource = new MatTableDataSource();
   displayedColumns: string[];
@@ -76,8 +76,8 @@ export class GpRestBasedGridWidgetComponent implements OnInit {
       this.deviceExtId = await this.iotSrService.getExternalIdForDevice(this.config);
       this.ApiUrl = this.config.url + this.deviceExtId;
       this.isDeviceSelected = false;
-    }else{
-     this.ApiUrl = this.config.url;
+    } else {
+      this.ApiUrl = this.config.url;
     }
 
     this.isExpandable = this.config.theCheckbox;
@@ -89,36 +89,36 @@ export class GpRestBasedGridWidgetComponent implements OnInit {
     this.displayedColumnValues = this.config.tableColumnValues.split(',');
 
     this.displayedColumns.forEach((iterator, index) => {
-      this.columns.push(  { columnDef: iterator, header: iterator,    cell: (element: any) => `${element[this.displayedColumnValues[index]]}` },)
+      this.columns.push({ columnDef: iterator, header: iterator, cell: (element: any) => `${element[this.displayedColumnValues[index]]}` },)
 
     });
 
     if (this.isExpandable) {
-    this.expandedDetail = this.config.subTableColumnNames.split(',');
-    this.expandedDetailValues = this.config.subTableColumnValues.split(',');
+      this.expandedDetail = this.config.subTableColumnNames.split(',');
+      this.expandedDetailValues = this.config.subTableColumnValues.split(',');
 
-    this.expandedDetail.forEach((iterator1, index1) => {
-    this.expandedColumns.push(  { columnDef: iterator1, header: iterator1,    cell: (element: any) => `${element[this.expandedDetailValues[index1]]}` },)
+      this.expandedDetail.forEach((iterator1, index1) => {
+        this.expandedColumns.push({ columnDef: iterator1, header: iterator1, cell: (element: any) => `${element[this.expandedDetailValues[index1]]}` },)
 
 
-    });
+      });
 
-  }
+    }
     await this.iotSrService.getRestItems(this.ApiUrl).then((response) => response.json())
-    .then((devData) => {
-      if (devData[this.mainList].length > 0) {
-        this.totalRecord = devData[this.mainList].length;
-        this.responseData =  devData[this.mainList];
-        const pageData = devData[this.mainList].slice(0, (this.pageSize));
-        this.dataSource.data = pageData;
-        this.dataSource.sort = this.sort;
-  
-      }
-     
-    });
-    
+      .then((devData) => {
+        if (devData[this.mainList].length > 0) {
+          this.totalRecord = devData[this.mainList].length;
+          this.responseData = devData[this.mainList];
+          const pageData = devData[this.mainList].slice(0, (this.pageSize));
+          this.dataSource.data = pageData;
+          this.dataSource.sort = this.sort;
+
+        }
+
+      });
+
   }
-// Refresh
+  // Refresh
   async refresh() {
 
     if (this.config.isDevice) {
@@ -129,8 +129,8 @@ export class GpRestBasedGridWidgetComponent implements OnInit {
       this.deviceExtId = await this.iotSrService.getExternalIdForDevice(this.config);
       this.ApiUrl = this.config.url + this.deviceExtId;
       this.isDeviceSelected = false;
-    }else{
-     this.ApiUrl = this.config.url;
+    } else {
+      this.ApiUrl = this.config.url;
     }
 
     this.isExpandable = this.config.theCheckbox;
@@ -149,48 +149,48 @@ export class GpRestBasedGridWidgetComponent implements OnInit {
     this.displayedColumnValues = this.config.tableColumnValues.split(',');
 
     this.displayedColumns.forEach((iterator, index) => {
-      this.columns.push(  { columnDef: iterator, header: iterator,    cell: (element: any) => `${element[this.displayedColumnValues[index]]}` },)
+      this.columns.push({ columnDef: iterator, header: iterator, cell: (element: any) => `${element[this.displayedColumnValues[index]]}` },)
     });
 
     if (this.isExpandable) {
-    this.expandedDetail = this.config.subTableColumnNames.split(',');
-    this.expandedDetailValues = this.config.subTableColumnValues.split(',');
+      this.expandedDetail = this.config.subTableColumnNames.split(',');
+      this.expandedDetailValues = this.config.subTableColumnValues.split(',');
 
-    this.expandedDetail.forEach((iterator1, index1) => {
-      this.expandedColumns.push(  { columnDef: iterator1, header: iterator1,    cell: (element: any) => `${element[this.expandedDetailValues[index1]]}` },)
+      this.expandedDetail.forEach((iterator1, index1) => {
+        this.expandedColumns.push({ columnDef: iterator1, header: iterator1, cell: (element: any) => `${element[this.expandedDetailValues[index1]]}` },)
 
-    });
+      });
 
-  }
+    }
 
     this.responseData = [];
     this.totalRecord = -1;
     this.currentPage = 1;
 
     await this.iotSrService.getRestItems(this.ApiUrl).then((response) => response.json())
-    .then((devData) => {
-      if (devData[this.mainList].length > 0) {
-        this.totalRecord = devData[this.mainList].length;
-        this.responseData =  devData[this.mainList];
-        const pageData = devData[this.mainList].slice(0, (this.pageSize));
-        this.dataSource.data = pageData;
-        this.dataSource.sort = this.sort;
-      }
-     
-    });
+      .then((devData) => {
+        if (devData[this.mainList].length > 0) {
+          this.totalRecord = devData[this.mainList].length;
+          this.responseData = devData[this.mainList];
+          const pageData = devData[this.mainList].slice(0, (this.pageSize));
+          this.dataSource.data = pageData;
+          this.dataSource.sort = this.sort;
+        }
 
- }
- // Search Filter
- applyFilter(event: Event) {
-  this.filterValue = (event.target as HTMLInputElement).value;
-  this.dataSource.filter = this.filterValue.trim().toLowerCase();
-}
+      });
+
+  }
+  // Search Filter
+  applyFilter(event: Event) {
+    this.filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = this.filterValue.trim().toLowerCase();
+  }
   /**
    * This method will called during page navigation
    */
-   getPageEvent(pageEvent) {
+  getPageEvent(pageEvent) {
     this.currentPage = pageEvent.page;
-    this.dataSource.data = this.responseData.slice(((this.currentPage - 1) * this.pageSize ),(this.currentPage * this.pageSize))
+    this.dataSource.data = this.responseData.slice(((this.currentPage - 1) * this.pageSize), (this.currentPage * this.pageSize))
   }
 
 }

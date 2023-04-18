@@ -1,16 +1,20 @@
 {
   "name": "cumulocity-rest-based-grid-widget-plugin",
-  "version": "1.0.0-beta",
-  "description": "This Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc..",
+  "version": "1.0.0",
+  "description": "The Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc..",
   "scripts": {
-    "start": "c8ycli server --env.beta=true",
+    "start": "c8ycli server",
     "build": "c8ycli build --env.mode=production",
     "deploy": "c8ycli deploy",
     "postinstall": "ngcc",
     "prebuild": " gulp clean",
     "postbuild": " gulp bundle"
   },
-  "keywords": [],
+  "keywords": [
+    "Cumulocity",
+    "Plugin",
+    "Widget"
+  ],
   "author": "Meer Arfath - Software AG, Global Presales",
   "license": "Apache-2.0",
   "dependencies": {
@@ -55,11 +59,11 @@
   },
   "c8y": {
     "application": {
-      "name": "Cumulocity Rest Based Grid Widget Plugin",
-      "description": "This Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc..",
-      "contextPath": "rest-based-grid-runtime-widget",
-      "key": "rest-based-grid-runtime-widget-application-key",
-      "globalTitle": "This Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc..",
+      "name": "Rest Based Grid Widget",
+      "description": "The Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc..",
+      "contextPath": "sag-ps-pkg-rest-based-grid-widget",
+      "key": "sag-ps-pkg-rest-based-grid-widget-application-key",
+      "globalTitle": "The Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc..",
       "tabsHorizontal": true,
       "isPackage": true,
       "noAppSwitcher": true,
@@ -70,10 +74,10 @@
       },
       "exports": [
         {
-          "name": "Cumulocity Rest Based Grid Widget Plugin",
+          "name": "Rest Based Grid Widget",
           "module": "GpRestBasedGridWidgetModule",
           "path": "./widget/gp-rest-based-grid-widget.module.ts",
-          "description": "This Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc.."
+          "description": "The Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc.."
         }
       ],
       "remotes": {

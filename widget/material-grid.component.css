@@ -65,7 +65,9 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 
 .brandingTheme {
+  width: 100%;
   background-color: var(--component-background, #fff);
+  table-layout: fixed;
 }
 
 .brandingTheme td.mat-cell,
@@ -76,7 +78,15 @@ tr.example-element-row:not(.example-expanded-row):active {
   min-width: 100px;
   padding-right: 10px;
   white-space: normal;
-  color: var(--component-color,#000);
+  border-bottom-color: var(--table-border, var(--component-border, var(--root-component-border, rgba(0, 0, 0, 0.1))));
+}
+
+.brandingTheme th.mat-header-cell {
+  color: var(--component-label-color, #333);
+}
+
+.brandingTheme td.mat-cell {
+  color: var(--component-color, #000);
 }
 
 .refresh-button {

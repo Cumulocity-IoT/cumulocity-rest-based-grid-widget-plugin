@@ -26,9 +26,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class GpRestBasedGridWidgetConfigComponent implements OnInit {
 
   constructor() { }
-  @Input() config: any = {theCheckbox: false};
+  @Input() config: any = { theCheckbox: false };
 
-  pageSizeList: string[] = ['5', '10', '20', '50', '100' ];
+  pageSizeList: string[] = ['5', '10', '20', '50', '100'];
 
 
   ngOnInit() {
@@ -38,7 +38,7 @@ export class GpRestBasedGridWidgetConfigComponent implements OnInit {
 
   }
 
-  toggleVisibility(e){
+  toggleVisibility(e) {
   }
 
 }

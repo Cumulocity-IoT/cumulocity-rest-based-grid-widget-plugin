@@ -1,16 +1,14 @@
-# Rest Based Grid for Cumulocity [<img width="35" src="https://user-images.githubusercontent.com/32765455/211497905-561e9197-18b9-43d5-a023-071d3635f4eb.png"/>](https://github.com/SoftwareAG/cumulocity-rest-based-grid-widget-plugin/releases/download/1.0.0-beta/rest-based-grid-runtime-widget-1.0.0-beta.zip)
+# Rest Based Grid for Cumulocity [<img width="35" src="https://user-images.githubusercontent.com/32765455/211497905-561e9197-18b9-43d5-a023-071d3635f4eb.png"/>](https://github.com/SoftwareAG/cumulocity-rest-based-grid-widget-plugin/releases/download/1.0.0/sag-ps-pkg-rest-based-grid-widget-1.0.0.zip)
 
 
 
-This Rest Based Grid Widget is the Cumulocity module federation plugin created using c8ycli. This plugin can be used in Application Builder or Cockpit. This Rest Based Grid Widget help you to display API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc.
-
-### Please note that this plugin is in currently under BETA mode.
+The Rest Based Grid Widget is the Cumulocity module federation plugin created using c8ycli. This plugin can be used in Application Builder or Cockpit. This Rest Based Grid Widget help you to display API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc.
 
 ### Please choose Rest Based Grid release based on Cumulocity/Application builder version:
 
 |APPLICATION BUILDER | CUMULOCITY  | REST BASED GRID WIDGET |
 |--------------------|-------------|------------------------|
-| 2.x.x(coming soon) | >= 1016.x.x | 1.x.x                  |
+| 2.0.x              | >= 1016.x.x | 1.x.x                  |
 
 
 ## Prerequisite
@@ -34,7 +32,7 @@ This Rest Based Grid Widget is the Cumulocity module federation plugin created u
   
 ### Runtime Widget Deployment?
 
-* This widget support runtime deployment. Download [Runtime Binary](https://github.com/SoftwareAG/cumulocity-rest-based-grid-widget-plugin/releases/download/1.0.0-beta/rest-based-grid-runtime-widget-1.0.0-beta.zip) and install via Administrations(Beta mode) --> Ecosystems --> Applications --> Packages 
+* This widget support runtime deployment. Download [Runtime Binary](https://github.com/SoftwareAG/cumulocity-rest-based-grid-widget-plugin/releases/download/1.0.0/sag-ps-pkg-rest-based-grid-widget-1.0.0.zip) and install via Administrations --> Ecosystems --> Applications --> Packages 
 
 
 ## QuickStart
