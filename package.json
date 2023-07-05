@@ -84,7 +84,13 @@
         "widget-plugin": [
           "GpRestBasedGridWidgetModule"
         ]
-      }
+      },
+      "copy": [
+        {
+          "from": "LICENSE",
+          "to": "LICENSE.txt"
+        }
+      ]
     },
     "cli": {}
   },
