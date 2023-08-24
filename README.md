@@ -6,7 +6,7 @@ The Rest Based Grid Widget is the Cumulocity module federation plugin created us
 
 ### Please choose Rest Based Grid release based on Cumulocity/Application builder version:
 
-|APPLICATION BUILDER | CUMULOCITY  | REST BASED GRID WIDGET |
+|APPLICATION BUILDER&nbsp;|&nbsp;CUMULOCITY&nbsp;|&nbsp;REST BASED GRID WIDGET&nbsp;|
 |--------------------|-------------|------------------------|
 | 2.0.x              | >= 1016.x.x | 1.x.x                  |
 
