@@ -1,6 +1,6 @@
 {
   "name": "cumulocity-rest-based-grid-widget-plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The Rest Based Grid Widget displays API data in Grid view with configurable columns and headings. This widget also supports Nested lists, search and server side pagination, etc..",
   "scripts": {
     "start": "c8ycli server",
@@ -86,6 +86,10 @@
         ]
       },
       "copy": [
+        {
+          "from": "images/restbasedgrid.PNG",
+          "to": "images/restbasedgrid.PNG"
+        },
         {
           "from": "LICENSE",
           "to": "LICENSE.txt"

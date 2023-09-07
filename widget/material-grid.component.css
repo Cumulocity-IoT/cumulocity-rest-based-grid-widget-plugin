@@ -7,7 +7,7 @@ tr.example-detail-row {
 }
 
 tr.example-element-row:not(.example-expanded-row):hover {
-  background: var(--component-active-background,#f5f5f5);
+  background: var(--component-active-background,#fff);
 }
 
 tr.example-element-row:not(.example-expanded-row):active {
@@ -50,6 +50,10 @@ tr.example-element-row:not(.example-expanded-row):active {
   top: 25px;
   color: #8a72ff;
 
+}
+.device-list-pagination-view {
+  display: block;
+  background: transparent;
 }
 
 .mat-form .mat-form-field-infix {
@@ -125,4 +129,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .inputTheme:focus {
   color: #000;
+}
+:host ::ng-deep .page-link{
+  height:  32px;
 }

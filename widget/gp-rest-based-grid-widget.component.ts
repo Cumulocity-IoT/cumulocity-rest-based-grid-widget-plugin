@@ -25,7 +25,7 @@ import { GpRestBasedGridWidgetService } from './gp-rest-based-grid-widget.servic
   selector: 'lib-gp-rest-based-grid-widget',
   templateUrl: 'gp-rest-based-grid-widget.html',
   styleUrls: ['material-grid.component.css'],
-  encapsulation: ViewEncapsulation.None,
+  //encapsulation: ViewEncapsulation.None,
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({ height: '0px', minHeight: '0', display: 'none' })),

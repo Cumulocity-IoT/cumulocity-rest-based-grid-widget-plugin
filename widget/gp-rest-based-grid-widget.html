@@ -22,7 +22,7 @@
 </div>
 
 <div>
-  <pagination [style.visibility]="totalRecord === -1? 'hidden': 'visible'" class="m-t-8 m-r-8 p-b-8 pull-right"
+  <pagination [style.visibility]="totalRecord === -1? 'hidden': 'visible'"  class="m-t-8 m-r-8 p-b-8 pull-right"
     previousText=" " nextText=" " [maxSize]="5" [totalItems]="totalRecord" [itemsPerPage]="pageSize"
     [(ngModel)]="currentPage" (pageChanged)="getPageEvent($event)"></pagination>
   <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows class="mat-elevation-z8 brandingTheme"
