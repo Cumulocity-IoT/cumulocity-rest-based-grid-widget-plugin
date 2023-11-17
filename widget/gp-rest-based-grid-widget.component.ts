@@ -36,6 +36,7 @@ import { GpRestBasedGridWidgetService } from './gp-rest-based-grid-widget.servic
 })
 export class GpRestBasedGridWidgetComponent implements OnInit {
   responseData: any;
+  displayedNestedColumnValues: any;
 
   constructor(private iotSrService: GpRestBasedGridWidgetService) { }
 
@@ -79,6 +80,7 @@ export class GpRestBasedGridWidgetComponent implements OnInit {
     } else {
       this.ApiUrl = this.config.url;
     }
+    console.log('api url', this.ApiUrl);
 
     this.isExpandable = this.config.theCheckbox;
 
@@ -89,8 +91,12 @@ export class GpRestBasedGridWidgetComponent implements OnInit {
     this.displayedColumnValues = this.config.tableColumnValues.split(',');
 
     this.displayedColumns.forEach((iterator, index) => {
-      this.columns.push({ columnDef: iterator, header: iterator, cell: (element: any) => `${element[this.displayedColumnValues[index]]}` },)
-
+      let splitNested = this.displayedColumnValues[index].split('.');
+      if (this.displayedColumnValues[index].split('.').length > 1) {
+        this.columns.push({ columnDef: iterator, header: iterator, cell: (element: any) => `${element[splitNested[0]][splitNested[1]]}`},)
+      } else {
+        this.columns.push({ columnDef: iterator, header: iterator, cell: (element: any) => `${element[this.displayedColumnValues[index]]}` },)
+      }
     });
 
     if (this.isExpandable) {
@@ -98,9 +104,12 @@ export class GpRestBasedGridWidgetComponent implements OnInit {
       this.expandedDetailValues = this.config.subTableColumnValues.split(',');
 
       this.expandedDetail.forEach((iterator1, index1) => {
+        let splitNestedSubDoc = this.expandedDetailValues[index1].split('.');
+        if (this.expandedDetailValues[index1].split('.').length > 1) {
+          this.expandedColumns.push({ columnDef: iterator1, header: iterator1, cell: (element: any) => `${element[splitNestedSubDoc[0]][splitNestedSubDoc[1]]}` },)
+        } else {
         this.expandedColumns.push({ columnDef: iterator1, header: iterator1, cell: (element: any) => `${element[this.expandedDetailValues[index1]]}` },)
-
-
+        }
       });
 
     }
