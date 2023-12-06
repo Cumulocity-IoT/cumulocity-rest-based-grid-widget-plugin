@@ -19,6 +19,7 @@
 import { Component, OnInit, Input, ViewChild, ViewEncapsulation } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatSort } from '@angular/material/sort';
+import * as _ from 'lodash';
 import { MatTableDataSource } from '@angular/material/table';
 import { GpRestBasedGridWidgetService } from './gp-rest-based-grid-widget.service';
 @Component({
@@ -80,7 +81,6 @@ export class GpRestBasedGridWidgetComponent implements OnInit {
     } else {
       this.ApiUrl = this.config.url;
     }
-    console.log('api url', this.ApiUrl);
 
     this.isExpandable = this.config.theCheckbox;
 
@@ -91,12 +91,12 @@ export class GpRestBasedGridWidgetComponent implements OnInit {
     this.displayedColumnValues = this.config.tableColumnValues.split(',');
 
     this.displayedColumns.forEach((iterator, index) => {
-      let splitNested = this.displayedColumnValues[index].split('.');
-      if (this.displayedColumnValues[index].split('.').length > 1) {
-        this.columns.push({ columnDef: iterator, header: iterator, cell: (element: any) => `${element[splitNested[0]][splitNested[1]]}`},)
-      } else {
-        this.columns.push({ columnDef: iterator, header: iterator, cell: (element: any) => `${element[this.displayedColumnValues[index]]}` },)
-      }
+      const colArray = this.displayedColumnValues[index].split('.');
+        if (colArray.length  > 1) { 
+          this.columns.push({ columnDef: iterator, header: iterator, cell: (element: any) => `${_.get(element,  this.displayedColumnValues[index])}` },)
+        } else {
+          this.columns.push({ columnDef: iterator, header: iterator, cell: (element: any) => `${element[this.displayedColumnValues[index]]}` },)
+        }
     });
 
     if (this.isExpandable) {
@@ -104,14 +104,13 @@ export class GpRestBasedGridWidgetComponent implements OnInit {
       this.expandedDetailValues = this.config.subTableColumnValues.split(',');
 
       this.expandedDetail.forEach((iterator1, index1) => {
-        let splitNestedSubDoc = this.expandedDetailValues[index1].split('.');
-        if (this.expandedDetailValues[index1].split('.').length > 1) {
-          this.expandedColumns.push({ columnDef: iterator1, header: iterator1, cell: (element: any) => `${element[splitNestedSubDoc[0]][splitNestedSubDoc[1]]}` },)
+        const subColArray = this.expandedDetailValues[index1].split('.').length;
+        if (subColArray > 1) {
+          this.expandedColumns.push({ columnDef: iterator1, header: iterator1, cell: (element: any) => `${_.get(element, this.expandedDetailValues[index1])}` },)
         } else {
-        this.expandedColumns.push({ columnDef: iterator1, header: iterator1, cell: (element: any) => `${element[this.expandedDetailValues[index1]]}` },)
+          this.expandedColumns.push({ columnDef: iterator1, header: iterator1, cell: (element: any) => `${element[this.expandedDetailValues[index1]]}` },)
         }
       });
-
     }
     await this.iotSrService.getRestItems(this.ApiUrl).then((response) => response.json())
       .then((devData) => {
@@ -121,11 +120,8 @@ export class GpRestBasedGridWidgetComponent implements OnInit {
           const pageData = devData[this.mainList].slice(0, (this.pageSize));
           this.dataSource.data = pageData;
           this.dataSource.sort = this.sort;
-
         }
-
       });
-
   }
   // Refresh
   async refresh() {
@@ -158,7 +154,12 @@ export class GpRestBasedGridWidgetComponent implements OnInit {
     this.displayedColumnValues = this.config.tableColumnValues.split(',');
 
     this.displayedColumns.forEach((iterator, index) => {
-      this.columns.push({ columnDef: iterator, header: iterator, cell: (element: any) => `${element[this.displayedColumnValues[index]]}` },)
+      const  colArray = this.displayedColumnValues[index].split('.').length;
+      if (colArray > 1) {
+        this.columns.push({ columnDef: iterator, header: iterator, cell: (element: any) => `${_.get(element, this.displayedColumnValues[index])}`},)
+      } else {
+        this.columns.push({ columnDef: iterator, header: iterator, cell: (element: any) => `${element[this.displayedColumnValues[index]]}` },)
+      }
     });
 
     if (this.isExpandable) {
@@ -166,10 +167,13 @@ export class GpRestBasedGridWidgetComponent implements OnInit {
       this.expandedDetailValues = this.config.subTableColumnValues.split(',');
 
       this.expandedDetail.forEach((iterator1, index1) => {
+        let subColArray = this.expandedDetailValues[index1].split('.').length;
+        if (subColArray > 1) {
+          this.expandedColumns.push({ columnDef: iterator1, header: iterator1, cell: (element: any) => `${_.get(element, this.expandedDetailValues[index1])}` },)
+        } else {
         this.expandedColumns.push({ columnDef: iterator1, header: iterator1, cell: (element: any) => `${element[this.expandedDetailValues[index1]]}` },)
-
+        }
       });
-
     }
 
     this.responseData = [];
